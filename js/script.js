@@ -1,44 +1,37 @@
 // script.js
 
-const introText = "Please don't ask me because even I don't know who I am?";
-const introElem = document.getElementById("intro");
-
-let idx = 0;
-let isDeleting = false;
-const typingSpeed = 100;
-const deletingSpeed = 60;
-const pauseAfterTyping = 1500;
-
-// fungsi loop typewriter
-function loopTyping() {
-  const full = introText;
-  if (!isDeleting) {
-    introElem.textContent = full.substring(0, idx + 1);
-    idx++;
-    if (idx === full.length) {
-      isDeleting = true;
-      return setTimeout(loopTyping, pauseAfterTyping);
+// Helper: typewriter loop
+function typeLoop(element, text, typeSpeed, deleteSpeed, pauseTime) {
+  let idx = 0, deleting = false;
+  function tick() {
+    if (!deleting) {
+      element.textContent = text.substring(0, idx + 1);
+      idx++;
+      if (idx === text.length) {
+        deleting = true;
+        return setTimeout(tick, pauseTime);
+      }
+    } else {
+      element.textContent = text.substring(0, idx - 1);
+      idx--;
+      if (idx === 0) deleting = false;
     }
-  } else {
-    introElem.textContent = full.substring(0, idx - 1);
-    idx--;
-    if (idx === 0) {
-      isDeleting = false;
-    }
+    setTimeout(tick, deleting ? deleteSpeed : typeSpeed);
   }
-  setTimeout(loopTyping, isDeleting ? deletingSpeed : typingSpeed);
+  tick();
 }
 
-// setup overlay klik
 document.getElementById("overlay").addEventListener("click", () => {
-  // sembunyikan overlay
   document.getElementById("overlay").style.display = "none";
-
-  // unmute & play video
   const bg = document.querySelector(".background-video");
-  bg.muted = false;
-  bg.play().catch(() => {});
+  bg.muted = false; bg.play().catch(()=>{});
 
-  // mulai typing
-  loopTyping();
+  // start both loops
+  typeLoop(document.getElementById("intro"),
+           "Please don't ask me because even I don't know who I am?",
+           100, 60, 1500);
+
+  typeLoop(document.getElementById("skillIssue"),
+           "SKILL ISSUE",
+           100, 60, 1500);
 });
