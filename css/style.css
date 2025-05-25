@@ -1,0 +1,130 @@
+/* Reset & full‐screen */
+* { margin:0; padding:0; box-sizing:border-box; }
+html {
+  width:100%; height:100%;
+  background:#000; /* fallback */
+}
+body {
+  width:100%; height:100%;
+  font-family:sans-serif;
+  color:#fff;
+  overflow:hidden;
+}
+
+/* Overlay awal */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* Video background */
+.background-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Konten profil */
+.profile-container {
+  position: relative;
+  z-index: 1;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Avatar */
+.avatar {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+/* Username & badges */
+.username {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* Intro-text (typewriter loop) */
+.intro-text {
+  width: 100%; max-width: 360px;
+  font-family: monospace;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+#intro {
+  display: inline-block;
+  white-space: normal;
+  word-break: break-word;
+  overflow: hidden;
+}
+@keyframes blinkCursor {
+  0%,100% { opacity:1; }
+  50%     { opacity:0; }
+}
+#intro::after {
+  content: '|';
+  margin-left: 2px;
+  animation: blinkCursor 0.7s step-start infinite;
+}
+
+/* Status card */
+.status-card {
+  width: 100%; max-width: 360px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.status-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.status-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+}
+.status-name { font-weight: bold; }
+.status-state { font-size: 0.8rem; opacity: 0.8; }
+.status-icon { font-size: 1.5rem; opacity: 0.8; }
+
+/* Social icons & view count */
+.social-icons {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+.social-icons a { margin: 0 10px; opacity: 0.9; }
+.view-count { font-size: 0.9rem; }
