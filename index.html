@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>exotickik • Profil</title>
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Overlay awal -->
+  <div id="overlay" class="overlay">
+    Klik
+  </div>
+
+  <!-- Video background -->
+  <video
+    class="background-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src="video/background.mp4" type="video/mp4" />
+    Browser Anda tidak mendukung video.
+  </video>
+
+  <!-- Konten profil -->
+  <div class="profile-container">
+    <img class="avatar" src="img/avatar.jpg" alt="Foto Profil exotickik" />
+
+    <h1 class="username">exotickik</h1>
+    <div class="badges">
+      <i class="fa-solid fa-diamond"></i>
+      <i class="fa-solid fa-star"></i>
+    </div>
+
+    <div class="intro-text">
+      <span id="intro"></span>
+    </div>
+
+    <div class="status-card">
+      <img class="status-avatar" src="img/avatar.jpg" alt="Status Avatar" />
+      <div class="status-info">
+        <span class="status-name">kik</span>
+        <span class="status-state">Idling</span>
+      </div>
+      <i class="fa-solid fa-keyboard status-icon"></i>
+    </div>
+
+    <div class="social-icons">
+      <a
+        href="https://www.instagram.com/exoticrzz?igsh=eW01OW11MWQ0Yzlh&utm_source=qr"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+
+    <div class="view-count">
+      <i class="fa-solid fa-eye"></i> 2,588
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
